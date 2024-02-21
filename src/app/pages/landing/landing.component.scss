@@ -19,3 +19,29 @@
 .sliderHeight{
   height: 392px
 }
+
+.displayimg2{
+
+  display: contents;
+}
+.removeimg2{
+ display: none !important;
+}
+.display2{
+  display: contents;
+}
+.option666{
+  animation: remove 30s ease infinite alternate;
+}
+@keyframes remove {
+  0% { left: 0%; }
+  11% { left: 0%; }
+  22% { left: -100.5%;}
+  33% { left: -100.5%;}
+  44% { left: -200.6%;}
+  55% { left: -200.6%;}
+  66% { left: -300.8%;}
+  77% { left: -300.8%;}
+  88% { left: -401%;}
+  100% { left: -401%;}
+}

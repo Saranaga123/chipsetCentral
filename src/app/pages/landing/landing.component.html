@@ -20,21 +20,21 @@
       </div>
     </div>
   </div>
-  <div  style="background-color: rgb(192, 192, 192);   overflow-y: hidden;overflow-x: hidden;float: left;width: 100%;" class="sliderHeight" >
-    <div style="width: 100%;position: fixed;top:5vh;left:0;z-index: 20;"class="sliderHeight"> </div>
-    <img src="../../../assets/img/13-131708_transparent-glass-texture-png.png" alt="sl1" style="width: 100%;position: fixed;top:5vh;left:0;z-index:22;"   >
-    <img src="../../../assets/img/slide1.png" alt="sl1" style="width: 100%;position: fixed;top:5vh;left:0;z-index: 20;"   [ngClass]="{ 'displayimg': img1, 'removeimg1': !img11,'display1':imgf }">
-    <img src="../../../assets/img/slide.png" alt="sl1" style="width: 100%;position: fixed;top:5vh;left:0;z-index: 19;" [ngClass]="{   'removeimg1': !img2 }" >
-    <img src="../../../assets/img/slide1.1.png" alt="sl1" style="width: 100%;position: fixed;top:5vh;left:0;z-index: 18;"  [ngClass]="{   'removeimg1': !img3 }">
-    <img src="../../../assets/img/slide1.2.png" alt="sl1" style="width: 100%;position: fixed;top:5vh;left:0;z-index: 17;"  [ngClass]="{   'removeimg1': !img4 }">
-    <img src="../../../assets/img/slide1.3.png" alt="sl1" style="width: 100%;position: fixed;top:5vh;left:0;z-index: 16;"  [ngClass]="{   'removeimg1': !img5 }">
-    <img src="../../../assets/img/slide2.png" alt="sl1" style="width: 100%;position: fixed;top:5vh;left:0;z-index: 15;"  [ngClass]="{     }">
-    </div>
+
+  <div  style="background-color: rgb(192, 192, 192);   overflow-y: hidden;overflow-x: hidden;float: left;width: 100%;position: relative;display: inline;" class="sliderHeight" >
+
+    <img src="../../../assets/img/allinone.png" alt="sl1" style="height: 100%;position: relative;top:0;left:0;z-index: 20;display: block;" class="option666"   >
+  </div>
   <div   style="float: left;width: 100%;">
     <div *ngFor="let product of prod" style="background-color: rgb(255, 255, 255);width: 24%;height:300px;padding: 20px;float: left;">
-      {{product.name}}
+      <p><span><h3>{{product.name}}</h3></span></p>
+      <p><span><h2>{{product.price}}</h2></span></p>
+      <img [src]="product.image" alt="baseimage"   height="200px">
+      <p style="text-align: justify;padding: 20px;"><span><h2>{{product.description}}</h2></span></p>
     </div>
+
   </div>
+
 
 </div>
 <app-spinner></app-spinner>

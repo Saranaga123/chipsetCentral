@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { DomSanitizer, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { LandingService } from 'src/app/services/landing.service';
@@ -42,7 +42,8 @@ export class LandingComponent {
     private titleService: Title,
     private router: Router,
     private spinner: NgxSpinnerService,
-    private landingservice : LandingService
+    private landingservice : LandingService,
+    private _sanitizer: DomSanitizer
   ) {
     this.spinner.show()
   }
@@ -56,8 +57,24 @@ export class LandingComponent {
     const observer = {
       next: (data: any) => {
 
-        this.prod=data
-        console.log("prod",this.prod)
+
+        for(const element of data){
+
+          const prodObj={
+            name:element.name,
+            userid:element.userid,
+            buyerid:element.buyerid,
+            description:element.description,
+            available:element.available,
+            status:element.status,
+            category:element.category,
+            price:element.price,
+            image:this._sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,'+element.image)
+
+          }
+          this.prod.push(prodObj)
+          console.log("this.displaydata",this.prod)
+        }
         this.spinner.hide()
       },
       error: (error: any) => {
