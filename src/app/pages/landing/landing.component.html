@@ -1,0 +1,40 @@
+<!-- <div style="background-color: black;  "class="col-12">
+  <img src="../../../assets/img/logo2.png" alt="logo" style="width:200px;float: left;">
+  <div style="float: right;margin-top: 15px;cursor: pointer;">
+    <i class="fa fa-search txt-color-teal" ></i>
+  </div>
+
+
+
+  <div style="font-size: larger;color: white; float: right; padding-right: 20px;padding-top: 15px;cursor: pointer;">
+    <i class="fa fa-user txt-color-teal"></i>
+  </div>
+</div> -->
+
+<div style="margin-right: 0px !important; float: left; width: 100%;">
+  <div  style="background-color: rgb(0, 0, 0); float: left;width: 100%;">
+    <div style="width: 100%;">
+      <img src="../../../assets/img/logo2.png" alt="logo" style="width:200px;float: left;">
+      <div style="font-size: larger;color: white; float: right; padding:5px 10px 0px 0px ;cursor: pointer;">
+        <i class="fa fa-user txt-color-teal"></i>
+      </div>
+    </div>
+  </div>
+  <div  style="background-color: rgb(192, 192, 192);   overflow-y: hidden;overflow-x: hidden;float: left;width: 100%;" class="sliderHeight" >
+    <div style="width: 100%;position: fixed;top:5vh;left:0;z-index: 20;"class="sliderHeight"> </div>
+    <img src="../../../assets/img/13-131708_transparent-glass-texture-png.png" alt="sl1" style="width: 100%;position: fixed;top:5vh;left:0;z-index:22;"   >
+    <img src="../../../assets/img/slide1.png" alt="sl1" style="width: 100%;position: fixed;top:5vh;left:0;z-index: 20;"   [ngClass]="{ 'displayimg': img1, 'removeimg1': !img11,'display1':imgf }">
+    <img src="../../../assets/img/slide.png" alt="sl1" style="width: 100%;position: fixed;top:5vh;left:0;z-index: 19;" [ngClass]="{   'removeimg1': !img2 }" >
+    <img src="../../../assets/img/slide1.1.png" alt="sl1" style="width: 100%;position: fixed;top:5vh;left:0;z-index: 18;"  [ngClass]="{   'removeimg1': !img3 }">
+    <img src="../../../assets/img/slide1.2.png" alt="sl1" style="width: 100%;position: fixed;top:5vh;left:0;z-index: 17;"  [ngClass]="{   'removeimg1': !img4 }">
+    <img src="../../../assets/img/slide1.3.png" alt="sl1" style="width: 100%;position: fixed;top:5vh;left:0;z-index: 16;"  [ngClass]="{   'removeimg1': !img5 }">
+    <img src="../../../assets/img/slide2.png" alt="sl1" style="width: 100%;position: fixed;top:5vh;left:0;z-index: 15;"  [ngClass]="{     }">
+    </div>
+  <div   style="float: left;width: 100%;">
+    <div *ngFor="let product of prod" style="background-color: rgb(255, 255, 255);width: 24%;height:300px;padding: 20px;float: left;">
+      {{product.name}}
+    </div>
+  </div>
+
+</div>
+<app-spinner></app-spinner>

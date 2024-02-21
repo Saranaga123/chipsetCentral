@@ -1,0 +1,21 @@
+.displayimg{
+
+  animation: get 2s ease forwards;
+}
+.removeimg1{
+  animation: remove 2s ease forwards;
+}
+.display1{
+  left: 0%;
+}
+@keyframes remove {
+  0% { left: 0%; }
+  100% {left: -100%;}
+}
+@keyframes get {
+  0% { left: -100%; }
+  100% {left: 0%;}
+}
+.sliderHeight{
+  height: 392px
+}
