@@ -33,4 +33,24 @@ export class LandingService {
         })
       );
   }
+  getprod(model:any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    return this.http
+      .get(
+        `${this.serverURL}/sarabe/prod/`+model,
+        { headers }
+      )
+      .pipe(
+        catchError((error) => {
+          if (error.status === 401) {
+            console.error('HTTP 401 Error:', error);
+            sessionStorage.setItem('sessionStatus', 'expired');
+          }
+          throw error;
+        })
+      );
+  }
 }

@@ -45,3 +45,36 @@
   88% { left: -401%;}
   100% { left: -401%;}
 }
+.getProdBtn{
+  background-color: rgb(0, 0, 0);
+  color: rgb(184, 184, 184);
+  padding: 20px;
+  width: fit-content;
+  font-weight: bolder;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  border-radius: 5px;
+}
+.getProdBtn:hover{
+  background-color: rgb(184, 184, 184);
+  color: rgb(0, 0, 0);
+}
+.buyOnline{
+  padding: 10px;background-color: black;color: white; font-size: 20px;font-weight: bolder;width: 100%;border-radius: 5px;cursor: pointer;
+  text-align: center;
+}
+.buyOnline:hover{
+  background-color: rgb(184, 184, 184);
+  color: rgb(0, 0, 0);
+}
+.Viewspec{
+  padding: 10px;background-color: black;color: white; font-size: 20px;font-weight: bolder;width: 100%;border-radius: 5px;cursor: pointer;
+  margin-bottom: 20px;text-align: center;
+}
+.Viewspec:hover{
+  background-color: rgb(184, 184, 184);
+  color: rgb(0, 0, 0);
+}

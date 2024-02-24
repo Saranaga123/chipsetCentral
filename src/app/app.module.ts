@@ -26,7 +26,7 @@ import {
     AppComponent,
     LandingComponent,
     SpinnerComponent,
-    ViewItemComponent
+    ViewItemComponent,
   ],
   imports: [
     BrowserModule,

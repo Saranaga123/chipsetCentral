@@ -45,15 +45,18 @@ export class LandingComponent {
     private landingservice : LandingService,
     private _sanitizer: DomSanitizer
   ) {
-    this.spinner.show()
+    // this.spinner.show()
   }
   ngOnInit(): void {
     sessionStorage.clear()
     this.titleService.setTitle('Landing | CChips');
     this.imgloop()
-    this.getProdList()
+    console.log("prod",this.prod)
+    // this.getProdList()
   }
   getProdList(){
+    this.prod=[]
+    this.spinner.show()
     const observer = {
       next: (data: any) => {
 
@@ -118,5 +121,9 @@ export class LandingComponent {
         this.imgloop()
         console.log(6)
       }, 21000);
+  }
+  viewItem(name:any){
+    console.log("View Item : ",name)
+    this.router.navigate(['/Product', name]);
   }
 }

@@ -1,23 +1,10 @@
-<!-- <div style="background-color: black;  "class="col-12">
-  <img src="../../../assets/img/logo2.png" alt="logo" style="width:200px;float: left;">
-  <div style="float: right;margin-top: 15px;cursor: pointer;">
-    <i class="fa fa-search txt-color-teal" ></i>
-  </div>
-
-
-
-  <div style="font-size: larger;color: white; float: right; padding-right: 20px;padding-top: 15px;cursor: pointer;">
-    <i class="fa fa-user txt-color-teal"></i>
-  </div>
-</div> -->
-
 <div style="margin-right: 0px !important; float: left; width: 100%;">
   <div  style="background-color: rgb(0, 0, 0); float: left;width: 100%;">
     <div style="width: 100%;">
       <img src="../../../assets/img/logo2.png" alt="logo" style="width:200px;float: left;">
-      <div style="font-size: larger;color: white; float: right; padding:5px 10px 0px 0px ;cursor: pointer;">
+      <!-- <div style="font-size: larger;color: white; float: right; padding:5px 10px 0px 0px ;cursor: pointer;">
         <i class="fa fa-user txt-color-teal"></i>
-      </div>
+      </div> -->
     </div>
   </div>
 
@@ -25,13 +12,128 @@
 
     <img src="../../../assets/img/allinone.png" alt="sl1" style="height: 100%;position: relative;top:0;left:0;z-index: 20;display: block;" class="option666"   >
   </div>
-  <div   style="float: left;width: 100%;">
-    <div *ngFor="let product of prod" style="background-color: rgb(255, 255, 255);width: 24%;height:300px;padding: 20px;float: left;">
-      <p><span><h3>{{product.name}}</h3></span></p>
-      <p><span><h2>{{product.price}}</h2></span></p>
-      <img [src]="product.image" alt="baseimage"   height="200px">
-      <p style="text-align: justify;padding: 20px;"><span><h2>{{product.description}}</h2></span></p>
+  <div   style="float: left;width: 100%;background-color: rgb(255, 255, 255)" >
+    <div style="width:100%;text-align: center;">
+      <div style="margin-top: 30px;  margin-left: auto; margin-right: auto;text-align: center; font-size: 60px; width: 60%; line-height: 1;">
+        <p>With Dell Technologies, your business is always ready to move forward</p>
+      </div>
+
+      <img src ="../../../assets/img/laps.png" alt=""  style="margin-top: 30px;width:380px">
     </div>
+    <div (click)="getProdList()" class="getProdBtn" *ngIf="prod.length == 0">
+      Check Our Latest Products !
+    </div>
+    <div style="width: 100%;" *ngIf="prod.length != 0" style="margin-bottom: 50px;float: left;">
+      <div style="margin-top: 120px;  margin-left: auto; margin-right: auto;text-align: center; font-size: 60px;width: 100%;float: left;">
+        <hr style="background-color: solid 3px rgb(51, 51, 51);">
+        <p style="padding: 10px;">Find the Alienware Laptop that’s best for you.</p>
+        <p style="padding: 15px;font-size: 30px;"><b>Everyone's favorite.</b> But don't just take our word for it.</p>
+        <p style="font-size: 20px;">
+          Experience high-performance gaming with iconic designs and intelligently engineered laptops.
+        </p>
+        <hr style="background-color: solid 3px rgb(51, 51, 51);">
+      </div>
+      <div>
+        <div *ngFor="let product of prod" style="background-color: rgb(255, 255, 255);width: 24%; padding: 20px;float: left;">
+          <p  ><span><h3>{{product.name}}</h3></span></p>
+          <p  ><span><h2>{{product.price}}</h2></span></p>
+          <img [src]="product.image" alt="baseimage"   height="200px"  >
+          <p style="text-align: justify;   "><span><h2>{{product.description}}</h2></span></p>
+        </div>
+      </div>
+      <div>
+        <div *ngFor="let product of prod" style="background-color: rgb(255, 255, 255);width: 24%; padding: 20px;float: left;">
+          <div   class="Viewspec" (click)="viewItem(product.name)"> View Specs.. </div>
+          <div   class="buyOnline"> BUY ONLINE </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div style="width: 100% ; background-color: rgb(232, 232, 232);float: left;margin-top: 50px;">
+      <div style="margin-top: 40px;  margin-left: auto; margin-right: auto;text-align: center; font-size: 60px; ">
+
+          WHO WE ARE
+      </div>
+      <hr style="background-color: solid 3px rgb(51, 51, 51);margin-top: 20px;">
+      <img src ="../../../assets/img/Capture.JPG" alt="" width="100%" style="margin-top: 40px;">
+      <div style="width: 100%;float: left;padding: 20px;">
+        <div style="width: 20%;height:100px;float: left;"></div>
+        <div style="width: 30%;float: left;">
+          <img src ="../../../assets/img/our-story-text-image-lg-xxl-700x500_jpg.png" alt="" width="100%" style="margin-top: 40px;">
+        </div>
+        <div style="width: 30%;float: left; padding-top: 50px;">
+          <p style="font-size: 20px;font-weight: bold;padding-right: 20px;padding-left: 20px;">OUR PURPOSE</p>
+          <p style="font-size: 40px;font-weight: bold;padding-right: 20px;padding-left: 20px;line-height: 1;">
+            We create technologies that drive human progress
+          </p>
+          <p style="font-size: 16px;font-weight: normal;padding-right: 20px;padding-left: 20px;line-height: 1;">
+            Our story began with a belief and a passion: that everybody should have easy access to the best technology anywhere in the world. That was in 1984 in Michael Dell’s University of Texas dorm room. Today, Dell Technologies is instrumental in changing the digital landscape the world over.
+            <br>
+            We are among the world’s leading technology companies helping to transform people’s lives with extraordinary capabilities. From hybrid cloud solutions to high-performance computing to ambitious social impact and sustainability initiatives, what we do impacts everyone, everywhere.
+          </p>
+        </div>
+        <div style="width: 20%;height:100px;float: left;"></div>
+      </div>
+      <div style="width: 100%;float: left;padding: 20px;">
+        <div style="width: 20%;height:100px;float: left;"></div>
+
+        <div style="width: 30%;float: left; padding-top: 50px;">
+          <p style="font-size: 20px;font-weight: bold;padding-right: 20px;padding-left: 20px;">Vision</p>
+          <p style="font-size: 40px;font-weight: bold;padding-right: 20px;padding-left: 20px;line-height: 1;">
+            Delivering a better tomorrow
+          </p>
+          <p style="font-size: 16px;font-weight: normal;padding-right: 20px;padding-left: 20px;line-height: 1;">
+            Our story began with a belief and a passion: that everybody should have easy access to the best technology anywhere in the world. That was in 1984 in Michael Dell’s University of Texas dorm room. Today, Dell Technologies is instrumental in changing the digital landscape the world over.
+            <br>
+            We are among the world’s leading technology companies helping to transform people’s lives with extraordinary capabilities. From hybrid cloud solutions to high-performance computing to ambitious social impact and sustainability initiatives, what we do impacts everyone, everywhere.
+          </p>
+        </div>
+        <div style="width: 30%;float: left;">
+          <img src ="../../../assets/img/Capture2.JPG" alt="" width="100%" style="margin-top: 40px;">
+        </div>
+        <div style="width: 20%;height:100px;float: left;"></div>
+
+      </div>
+    </div>
+
+    <div style="float: left;width: 100%;background-color: rgb(255, 255, 255);margin-bottom: 20px;">
+      <div (click)="getProdList()" class="getProdBtn" *ngIf="prod.length == 0">
+        Check Our Latest Products !
+      </div>
+      <div style="width: 100%;" *ngIf="prod.length != 0" style="margin-bottom: 50px;float: left;">
+        <div style="margin-top: 10px;  margin-left: auto; margin-right: auto;text-align: center; font-size: 60px;width: 100%;float: left;">
+          <hr style="background-color: solid 3px rgb(51, 51, 51);">
+          <p style="padding: 10px;">Find the Alienware Laptop that’s best for you.</p>
+          <p style="padding: 5px;font-size: 30px;"><b>Everyone's favorite.</b> But don't just take our word for it.</p>
+          <p style="font-size: 20px;">
+            Experience high-performance gaming with iconic designs and intelligently engineered laptops.
+          </p>
+          <hr style="background-color: solid 3px rgb(51, 51, 51);">
+        </div>
+        <div>
+          <div *ngFor="let product of prod" style="background-color: rgb(255, 255, 255);width: 24%; padding: 20px;float: left;">
+            <p  ><span><h3>{{product.name}}</h3></span></p>
+            <p  ><span><h2>{{product.price}}</h2></span></p>
+            <img [src]="product.image" alt="baseimage"   height="200px"  >
+            <p style="text-align: justify;   "><span><h2>{{product.description}}</h2></span></p>
+
+          </div>
+        </div>
+        <div>
+          <div *ngFor="let product of prod" style="background-color: rgb(255, 255, 255);width: 24%; padding: 20px;float: left;">
+            <div   class="Viewspec" (click)="viewItem(product.name)"> View Specs.. </div>
+            <div   class="buyOnline"> BUY ONLINE </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+    <p style="font-size: 15px; padding: 10px;background-color: rgb(232, 232, 232); float: left;margin-top: 40px;">
+      <b>Trademarks:</b> Dell Technologies, Dell and other trademarks are trademarks of Dell Inc. or its subsidiaries. Microsoft and Windows are US registered of Microsoft Corporation. Ultrabook, Celeron, Celeron Inside, Core Inside, Intel, Intel Logo, Intel Atom, Intel Atom Inside, Intel Core, Intel Inside, Intel Inside Logo, Intel vPro, Itanium, Itanium Inside, Intel Evo, Intel Optane, Iris, Itanium, MAX, Pentium, Pentium Inside, vPro Inside, Xeon, Xeon Phi, Xeon Inside, Thunderbolt and the Thunderbolt logo are trademarks of Intel Corporation or its subsidiaries in the U.S. and/or other countries. AMD, and the AMD Arrow logo, and combinations thereof are trademarks of Advanced Micro Devices, Inc.. The NVIDIA logo, GeForce, GeForce RTX, GeForce RTX Super, GeForce GTX, GeForce GTX Super, GRID, SHIELD, Battery Boost, Reflex, DLSS, CUDA, FXAA, GameStream, G-SYNC, G-SYNC Ultimate, NVLINK, ShadowPlay, SLI, TXAA, PhysX, GeForce Experience, GeForce NOW, Maxwell, Pascal and Turing are trademarks and/or registered trademarks of NVIDIA Corporation in the U.S. and other countries. USB Type-C® and USB-C® are registered trademarks of USB Implementers Forum. Other trademarks may be trademarks of their respective owners.
+    </p>
 
   </div>
 
