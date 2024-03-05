@@ -12,6 +12,11 @@ import { LandingService } from 'src/app/services/landing.service';
 export class BuyComponent {
   model: string="";
   specs:any={};
+  price:any=0.00
+  discount:any=0.00
+  Total:any=0.00
+  amount: any = 1
+
   constructor(
     private titleService: Title,
     private router: Router,
@@ -41,6 +46,7 @@ export class BuyComponent {
         this.specs.selectedImage="image"
         console.log(this.specs)
         this.spinner.hide()
+        this.amountChanged(1)
       },
       error: (error: any) => {
         console.error('Error retrieving transaction:', error);
@@ -55,5 +61,13 @@ export class BuyComponent {
   }
   goback(){
     this.router.navigate(['/']);
+  }
+  amountChanged(number : any){
+    console.log("amountChanged",number)
+    let numericValue = +this.specs.price.replace(/[^0-9.]/g, '');
+    this.price = numericValue*number
+    this.discount = (this.price/100)*5
+    this.Total = this.price - this.discount
+    console.log("Pay",numericValue)
   }
 }

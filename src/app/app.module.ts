@@ -22,6 +22,7 @@ import {
   NgbModule,
 } from '@ng-bootstrap/ng-bootstrap';
 import { BuyComponent } from './pages/buy/buy.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,8 @@ import { BuyComponent } from './pages/buy/buy.component';
     NgxSpinnerModule,
     NgbModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     DatePipe,
