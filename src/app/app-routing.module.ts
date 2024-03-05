@@ -7,6 +7,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'Landing', pathMatch: 'full'},
   { path: 'Landing', component: LandingComponent },
   { path: 'Product/:model', component: ViewItemComponent },
+  { path: 'Buy/:model', component: ViewItemComponent },
 ];
 
 @NgModule({

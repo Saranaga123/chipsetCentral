@@ -29,13 +29,17 @@ export class ViewItemComponent {
     });
     this.titleService.setTitle(this.model+' | CChips');
     this.getProd(this.model)
+
   }
   getProd(model:any){
     this.spinner.show()
     const observer = {
       next: (data: any) => {
-
         this.specs=data[0]
+        this.specs.image=this._sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,'+this.specs.image)
+        this.specs.image2=this._sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,'+this.specs.image2)
+        this.specs.image3=this._sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,'+this.specs.image3)
+        this.specs.selectedImage="image"
         console.log(this.specs)
         this.spinner.hide()
       },
@@ -45,5 +49,16 @@ export class ViewItemComponent {
     };
 
     this.landingservice.getprod(model).subscribe(observer);
+  }
+  selectImage(image:string){
+    this.specs.selectedImage=image
+    console.log(this.specs)
+  }
+  goback(){
+    this.router.navigate(['/']);
+  }
+  buyItem(name:any){
+    console.log("Buy Item : ",name)
+    this.router.navigate(['/Buy', name]);
   }
 }

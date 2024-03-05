@@ -1,24 +1,19 @@
-<div style="margin-right: 0px !important; float: left; width: 100%;">
-  <div  style="background-color: rgb(0, 0, 0); float: left;width: 100%;">
-    <div style="width: 100%;">
-      <img src="../../../assets/img/logo2.png" alt="logo" style="width:200px;float: left;">
-      <!-- <div style="font-size: larger;color: white; float: right; padding:5px 10px 0px 0px ;cursor: pointer;">
-        <i class="fa fa-user txt-color-teal"></i>
-      </div> -->
-    </div>
-  </div>
 
-  <div  style="background-color: rgb(192, 192, 192);   overflow-y: hidden;overflow-x: hidden;float: left;width: 100%;position: relative;display: inline;" class="sliderHeight" >
 
-    <img src="../../../assets/img/allinone.png" alt="sl1" style="height: 100%;position: relative;top:0;left:0;z-index: 20;display: block;" class="option666"   >
-  </div>
+<div style="background-color: rgb(192, 192, 192); overflow: hidden; float: left; width: 100%; position: relative; display: flex; align-items: center;" class="sliderHeight">
+  <img src="../../../assets/img/c8617584f5180a47f90de9004ed7afed.gif" alt="sl1" style="width: 100%; display: block; margin: 0 auto;">
+</div>
+<div style="background-color: rgba(192, 192, 192, 0); overflow: hidden; float: left; width: 100%; position: absolute;top:0 ;display: flex; align-items: center;" class="sliderHeight">
+  <img src ="../../../assets/img/aw.png" alt="sl1" style="width: 8%; display: block; margin: 0 auto; filter: drop-shadow(0 0 0.5rem rgb(20, 147, 220));">
+</div>
+
   <div   style="float: left;width: 100%;background-color: rgb(255, 255, 255)" >
     <div style="width:100%;text-align: center;">
       <div style="margin-top: 30px;  margin-left: auto; margin-right: auto;text-align: center; font-size: 60px; width: 60%; line-height: 1;">
         <p>With Dell Technologies, your business is always ready to move forward</p>
       </div>
-
       <img src ="../../../assets/img/laps.png" alt=""  style="margin-top: 30px;width:380px">
+
     </div>
     <div (click)="getProdList()" class="getProdBtn" *ngIf="prod.length == 0">
       Check Our Latest Products !
@@ -44,7 +39,7 @@
       <div>
         <div *ngFor="let product of prod" style="background-color: rgb(255, 255, 255);width: 24%; padding: 20px;float: left;">
           <div   class="Viewspec" (click)="viewItem(product.name)"> View Specs.. </div>
-          <div   class="buyOnline"> BUY ONLINE </div>
+          <div   class="buyOnline" (click)="buyItem(product.name)"> BUY ONLINE </div>
         </div>
       </div>
 
@@ -123,7 +118,7 @@
         <div>
           <div *ngFor="let product of prod" style="background-color: rgb(255, 255, 255);width: 24%; padding: 20px;float: left;">
             <div   class="Viewspec" (click)="viewItem(product.name)"> View Specs.. </div>
-            <div   class="buyOnline"> BUY ONLINE </div>
+            <div   class="buyOnline"(click)="buyItem(product.name)"> BUY ONLINE </div>
           </div>
         </div>
 
@@ -138,5 +133,4 @@
   </div>
 
 
-</div>
 <app-spinner></app-spinner>

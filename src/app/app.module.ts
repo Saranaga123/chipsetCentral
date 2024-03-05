@@ -21,12 +21,14 @@ import {
   NgbDateNativeAdapter,
   NgbModule,
 } from '@ng-bootstrap/ng-bootstrap';
+import { BuyComponent } from './pages/buy/buy.component';
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
     SpinnerComponent,
     ViewItemComponent,
+    BuyComponent,
   ],
   imports: [
     BrowserModule,

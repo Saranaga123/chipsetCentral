@@ -9,25 +9,7 @@ import { LandingService } from 'src/app/services/landing.service';
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent {
-  imageObject = [{
-    image: '../../../assets/img/slide.png',
-    thumbImage: '../../../assets/img/slide.png',
-}, {
-    image: '../../../assets/img/slide1.png',
-    thumbImage: '../../../assets/img/slide1.png'
-}, {
-    image: '../../../assets/img/slide1.1.png',
-    thumbImage: '../../../assets/img/slide1.1.png',
-},{
-    image: '../../../assets/img/slide1.2.png',
-    thumbImage: '../../../assets/img/slide1.2.png',
-}, {
-    image: '../../../assets/img/slide1.3.png',
-    thumbImage: '../../../assets/img/slide1.3.png'
-}, {
-    image: '../../../assets/img/slide2.png',
-    thumbImage: '../../../assets/img/slide2.png',
-}];
+
   imgf:boolean=true
   img1:boolean=false
   img11:boolean=true
@@ -48,13 +30,22 @@ export class LandingComponent {
     // this.spinner.show()
   }
   ngOnInit(): void {
-    sessionStorage.clear()
+
     this.titleService.setTitle('Landing | CChips');
     this.imgloop()
     console.log("prod",this.prod)
-    // this.getProdList()
+    this.LoadProd()
+  }
+  LoadProd(){
+
+      const exproducts = sessionStorage.getItem("prod")
+      if(exproducts){
+         this.getProdList()
+      }
+
   }
   getProdList(){
+    sessionStorage.clear()
     this.prod=[]
     this.spinner.show()
     const observer = {
@@ -76,8 +67,10 @@ export class LandingComponent {
 
           }
           this.prod.push(prodObj)
+
           console.log("this.displaydata",this.prod)
         }
+        sessionStorage.setItem("prod",JSON.stringify(this.prod))
         this.spinner.hide()
       },
       error: (error: any) => {
@@ -92,38 +85,36 @@ export class LandingComponent {
         this.img1=false
         this.img11=false
         this.img2=true
-        console.log(1)
       }, 3500);
       setTimeout(() => {
         this.img2=false
         this.img3=true
-        console.log(2)
       }, 7000);
       setTimeout(() => {
         this.img3=false
         this.img4=true
-        console.log(3)
       }, 10500);
       setTimeout(() => {
         this.img4=false
         this.img5=true
-        console.log(4)
       }, 14000);
       setTimeout(() => {
         this.img5=false
         this.img6=true
-        console.log(5)
       }, 17500);
       setTimeout(() => {
         this.img6=false
         this.img1=true
         this.img11=true
         this.imgloop()
-        console.log(6)
       }, 21000);
   }
   viewItem(name:any){
     console.log("View Item : ",name)
     this.router.navigate(['/Product', name]);
+  }
+  buyItem(name:any){
+    console.log("Buy Item : ",name)
+    this.router.navigate(['/Buy', name]);
   }
 }
