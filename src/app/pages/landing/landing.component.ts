@@ -117,4 +117,8 @@ export class LandingComponent {
     console.log("Buy Item : ",name)
     this.router.navigate(['/Buy', name]);
   }
+  testdata:any=""
+  displaytest(){
+    console.log("Test > ",this.testdata)
+  }
 }

@@ -22,7 +22,7 @@ import {
   NgbModule,
 } from '@ng-bootstrap/ng-bootstrap';
 import { BuyComponent } from './pages/buy/buy.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +46,8 @@ import { FormsModule } from '@angular/forms';
     NgbModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     DatePipe,

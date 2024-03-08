@@ -13,6 +13,7 @@
     <img [src]="specs.image2" alt=""   height="100px" (click)="selectImage('image2')" style="border:1px solid gray ;padding: 10px;">
     <img [src]="specs.image3" alt=""   height="100px" (click)="selectImage('image3')" style="border:1px solid gray ;padding: 10px;">
   </div>
+
   <div style="width:100%;float: left;text-align: center;" *ngIf="specs.name != undefined">
       <hr style="height: 1px; background-color: black; width: 100%;margin-top: 20px;margin-bottom: 20px;">
       <p style="font-size: 30px;float: left;width: 100%;padding-left:10px;margin-top:30px ;font-weight: bolder;"> Order Details  </p>
@@ -25,7 +26,7 @@
       <p style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ;font-weight: bolder;">Units  </p>
     </div>
     <div style="width:15%;float: left; ">
-      <select style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ; text-align: center;" [(ngModel)]="amount" (change)="amountChanged(amount)">
+      <select style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ; text-align: center;"  [(ngModel)]="amount" (change)="amountChanged(amount)">
         <option style="text-align: center;" value=1>1 Unit</option>
         <option style="text-align: center;"value=2>2 Units</option>
         <option style="text-align: center;"value=3>3 Units</option>
@@ -79,7 +80,8 @@
       <p style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ;font-weight: bolder;">Your Name  </p>
     </div>
     <div style="width:15%;float: left; ">
-      <Input style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ;">
+      <Input style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ;"  ngDefaultControl (keyup)="validateName()"  [(ngModel)]="name" >
+        <p *ngIf="!validname" style="color: red;">Please enter valid name</p>
     </div>
   </div>
   <div style="width:100%;float: left;" *ngIf="specs.name != undefined">
@@ -89,7 +91,8 @@
       <p style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ;font-weight: bolder;"> Mobile Number  </p>
     </div>
     <div style="width:15%;float: left; ">
-      <Input style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ;">
+      <Input style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ;" ngDefaultControl (keyup)="validateMobile()" [(ngModel)]="mobile">
+        <p *ngIf="!validmobile" style="color: red;">Please enter valid mobile</p>
     </div>
   </div>
   <div style="width:100%;float: left;" *ngIf="specs.name != undefined">
@@ -99,7 +102,8 @@
       <p style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ;font-weight: bolder;"> Email Address  </p>
     </div>
     <div style="width:15%;float: left; ">
-      <Input style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ;">
+      <Input style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ;"ngDefaultControl (keyup)="validateEmail()" [(ngModel)]="email">
+        <p *ngIf="!validemail" style="color: red;">Please enter valid email</p>
     </div>
   </div>
   <div style="width:100%;float: left;" *ngIf="specs.name != undefined">
@@ -109,7 +113,8 @@
       <p style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ;font-weight: bolder;"> Postal Code  </p>
     </div>
     <div style="width:15%;float: left; ">
-      <Input style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ;">
+      <Input style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ;"ngDefaultControl (keyup)="validatepost()" [(ngModel)]="post">
+      <p *ngIf="!validpost" style="color: red;">Please enter valid postal code</p>
     </div>
   </div>
   <div style="width:100%;float: left;" *ngIf="specs.name != undefined">
@@ -119,7 +124,8 @@
       <p style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ;font-weight: bolder;"> Address Line 1  </p>
     </div>
     <div style="width:15%;float: left; ">
-      <Input style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ;">
+      <Input style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ;"ngDefaultControl (keyup)="validateadd1()" [(ngModel)]="add1">
+        <p *ngIf="!validadd1" style="color: red;">Please enter valid Address line</p>
     </div>
   </div>
   <div style="width:100%;float: left;" *ngIf="specs.name != undefined">
@@ -129,7 +135,8 @@
       <p style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ;font-weight: bolder;"> Address Line 2  </p>
     </div>
     <div style="width:15%;float: left; ">
-      <Input style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ;">
+      <Input style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ;"ngDefaultControl (keyup)="validateadd2()" [(ngModel)]="add2">
+        <p *ngIf="!validadd2" style="color: red;">Please enter valid Address line</p>
     </div>
   </div>
   <div style="width:100%;float: left;" *ngIf="specs.name != undefined">
@@ -139,7 +146,8 @@
       <p style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ;font-weight: bolder;"> Address Line 3  </p>
     </div>
     <div style="width:15%;float: left; ">
-      <Input style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ; ">
+      <Input style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ; "ngDefaultControl (keyup)="validateadd3()" [(ngModel)]="add3">
+        <p *ngIf="!validadd3" style="color: red;">Please enter valid Address line</p>
     </div>
   </div>
   <div style="width:100%;float: left;" *ngIf="specs.name != undefined">
@@ -149,7 +157,7 @@
       <p style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ;font-weight: bolder;">Payment Method  </p>
     </div>
     <div style="width:15%;float: left; ">
-      <select style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ; text-align: center;"  >
+      <select style="font-size: 20px;float: left;width: 100%;padding-left:10px;margin-top:30px ; text-align: center;" ngDefaultControl  [(ngModel)]="payMethod" >
         <option style="text-align: center;" value=1>Credit Card</option>
         <option style="text-align: center;"value=2>Debit Card</option>
         <option style="text-align: center;"value=3>Paypal</option>
@@ -161,7 +169,7 @@
   <div style="width:100%;float: left;" *ngIf="specs.name != undefined">
     <div style="width:100%;text-align: center;float: left;">
       <div   class="buyOnline" style="margin-left: 28%;margin-right: 2%;" (click)="goback()"> Back </div>
-      <div   class="buyOnline"> Place Order </div>
+      <div   class="buyOnline" (click)="placeOrder()"> Place Order </div>
     </div>
     <div style="width:100%;float: left;text-align: center;" *ngIf="specs.name != undefined">
       <hr style="height: 1px; background-color: black; width: 100%;margin-top: 20px;margin-bottom: 20px;">
