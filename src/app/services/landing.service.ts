@@ -15,7 +15,8 @@ export class LandingService {
     this.serverURL = this.determineServerURL();
   }
   private determineServerURL(): string {
-      return 'http://localhost:666';
+      // return 'http://localhost:666';
+      return 'https://sarabe.onrender.com'
   }
 
   getprodList( ):Observable<Product[]>{
