@@ -1,7 +1,7 @@
 <div style="width: 100%;text-align: center;padding: 20px;max-height: 870px;overflow-y: scroll;">
   <h1 style="margin-bottom: 30px;">Purchase requests.</h1>
   <div style="margin-bottom: 20px;">
-    <div *ngFor="let order of orders" style="background-color: rgb(255, 255, 255);width: 33%; padding: 20px;float: left; border: solid #d7d7d7  2px;border-radius: 10px;">
+    <div *ngFor="let order of orders" style="background-color: rgb(255, 255, 255);width: 33%;height:524px; padding: 20px;float: left; border: solid #d7d7d7  2px;border-radius: 10px;">
       <p  >Laptop Model : <span><h3>{{order.model}}</h3></span></p>
       <p  >Units :<span><h2>{{order.units }}</h2></span></p>
       <p  >Billing Ammount :<span><h2>$ {{order.billingAmount| number:'1.2-2'}}</h2></span></p>
