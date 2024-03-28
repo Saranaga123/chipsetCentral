@@ -3,6 +3,9 @@ import { DomSanitizer, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { LandingService } from 'src/app/services/landing.service';
+import { NgbDateStruct, NgbModal, NgbCalendar, NgbDateAdapter, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from '../../components/login/login.component';
+import { OrdersComponent } from './popup/orders/orders.component';
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -18,6 +21,8 @@ export class LandingComponent {
   img4:boolean=true
   img5:boolean=true
   img6:boolean=true
+  userName :any= ""
+
   prod:any=[]
 
   constructor(
@@ -25,7 +30,8 @@ export class LandingComponent {
     private router: Router,
     private spinner: NgxSpinnerService,
     private landingservice : LandingService,
-    private _sanitizer: DomSanitizer
+    private _sanitizer: DomSanitizer,
+    private modalService : NgbModal,
   ) {
     // this.spinner.show()
   }
@@ -35,6 +41,11 @@ export class LandingComponent {
     this.imgloop()
     console.log("prod",this.prod)
     this.LoadProd()
+    let user = sessionStorage.getItem("userdata")
+    if(user){
+      let userdata= JSON.parse(user)
+      this.userName=userdata.name
+    }
   }
   LoadProd(){
 
@@ -44,41 +55,68 @@ export class LandingComponent {
       }
 
   }
+
   getProdList(){
-    sessionStorage.clear()
-    this.prod=[]
-    this.spinner.show()
-    const observer = {
-      next: (data: any) => {
+    let userlogs = sessionStorage.getItem("userdata")
+    if(userlogs){
+      // sessionStorage.clear()
+      this.prod=[]
+      this.spinner.show()
+      const observer = {
+        next: (data: any) => {
 
 
-        for(const element of data){
+          for(const element of data){
 
-          const prodObj={
-            name:element.name,
-            userid:element.userid,
-            buyerid:element.buyerid,
-            description:element.description,
-            available:element.available,
-            status:element.status,
-            category:element.category,
-            price:element.price,
-            image:this._sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,'+element.image)
+            const prodObj={
+              name:element.name,
+              userid:element.userid,
+              buyerid:element.buyerid,
+              description:element.description,
+              available:element.available,
+              status:element.status,
+              category:element.category,
+              price:element.price,
+              image:this._sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,'+element.image)
 
+            }
+            this.prod.push(prodObj)
+
+            console.log("this.displaydata",this.prod)
           }
-          this.prod.push(prodObj)
+          sessionStorage.setItem("prod",JSON.stringify(this.prod))
+          this.spinner.hide()
+        },
+        error: (error: any) => {
+          console.error('Error retrieving transaction:', error);
+        },
+      };
 
-          console.log("this.displaydata",this.prod)
+      this.landingservice.getprodList().subscribe(observer);
+    }else{
+      const modalRef = this.modalService.open(LoginComponent, {
+        size: 'md',
+      });
+
+      modalRef.result.then(
+        (result) => {
+          console.log('Modal closed with result:', result);
+          this.fetchuser();
+        },
+        (reason) => {
+          console.log('Modal dismissed with reason:', reason);
         }
-        sessionStorage.setItem("prod",JSON.stringify(this.prod))
-        this.spinner.hide()
-      },
-      error: (error: any) => {
-        console.error('Error retrieving transaction:', error);
-      },
-    };
+      );
+    }
+  }
 
-    this.landingservice.getprodList().subscribe(observer);
+  fetchuser(){
+    let user = sessionStorage.getItem("userdata")
+    if(user){
+      let userdata= JSON.parse(user)
+      this.userName=userdata.name
+      this.getProdList()
+    }
   }
   imgloop(){
       setTimeout(() => {

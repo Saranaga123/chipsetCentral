@@ -62,6 +62,26 @@
   background-color: rgb(184, 184, 184);
   color: rgb(0, 0, 0);
 }
+.getProdBtn2{
+  // background-color: rgb(184, 184, 184);;
+  background: linear-gradient(to bottom, #626262, #aeaeae);
+  color:rgb(47, 47, 47);
+  padding: 5px;
+  width: fit-content;
+  font-weight: bolder;
+  font-size: 12px;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  border-radius: 5px;
+  filter: drop-shadow(0 0 0.5rem rgb(20, 147, 220));
+}
+.getProdBtn2:hover{
+  background: linear-gradient(to bottom, #474747, #979797);
+  color:rgb(47, 47, 47);
+  filter: drop-shadow(0 0 0.25rem rgb(32, 173, 255));
+}
 .buyOnline{
   padding: 10px;background-color: black;color: white; font-size: 20px;font-weight: bolder;width: 100%;border-radius: 5px;cursor: pointer;
   text-align: center;

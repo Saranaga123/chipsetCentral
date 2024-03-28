@@ -1,0 +1,81 @@
+<div style="width: 100%;margin-top: 60px;">
+  <div style="width: 100%; text-align: center;font-size: 48px; ">
+    Alienware Sand Box Payment Gateway
+  </div>
+  <div style="width: 100%; text-align: center;font-size: 28px;margin-top: 40px; ">
+    Customer Name : {{name}}
+  </div>
+  <div style="width: 100%; text-align: center;font-size: 28px;margin-top: 40px; ">
+    Order ID : {{id}}
+  </div>
+  <div style="width: 100%; text-align: center;font-size: 28px;margin-top: 40px; ">
+    Total amount : ${{amount| number:'1.2-2'}}
+  </div>
+  <div style="font-size: 18px;width: 50%;margin-left: 25%;background-color: rgba(179, 227, 255, 0.438); float: left; border-radius: 20px;margin-top: 40px;padding: 40px;">
+    <div style="width: 100%;float: left;">
+      <div style="width: 15%;float: left;height: 10px;">
+      </div>
+      <div style="float: left;width: 85%;">
+        <div style="width: 40%;float: left;">
+          Name on Card
+        </div>
+        <div style="width: 60%;float: left;">
+          <input style="width: 100%;border-radius: 10px;" placeholder="Name on Card">
+        </div>
+      </div>
+    </div>
+
+    <div style="width: 100%;margin-top: 20px;float: left;">
+      <div style="width: 15%;float: left;height: 10px;">
+      </div>
+      <div style="float: left;width: 85%;">
+        <div style="width: 40%;float: left;">
+          Card Number
+        </div>
+        <div style="width: 60%;float: left;">
+          <input style="width: 100%;border-radius: 10px;" placeholder="Card Number">
+        </div>
+      </div>
+    </div>
+
+    <div style="width: 100%;margin-top: 20px;float: left;">
+      <div style="width: 15%;float: left;height: 10px;">
+      </div>
+      <div style="float: left;width: 85%;">
+        <div style="width: 40%;float: left;">
+          Expiry
+        </div>
+        <div style="width: 60%;float: left;">
+          <input type="date" style="width: 60%;border-radius: 10px;">
+        </div>
+      </div>
+    </div>
+
+    <div style="width: 100%;margin-top: 20px;float: left;">
+      <div style="width: 15%;float: left;height: 10px;">
+      </div>
+      <div style="float: left;width: 85%;">
+        <div style="width: 40%;float: left;">
+          CSV
+        </div>
+        <div style="width: 60%;float: left;">
+          <input  placeholder="csv" style="width: 30%;border-radius: 10px;">
+        </div>
+      </div>
+    </div>
+
+    <div style="width: 100%;margin-top: 20px;float: left;">
+      <div style="width: 15%;float: left;height: 10px;">
+      </div>
+      <div style="float: left;width: 85%;">
+        <div style="width: 40%;float: left;height: 5px;">
+
+        </div>
+        <div style="width: 60%;float: left;">
+          <button style="background-color: black;color: white;font-size: 18px;border-radius: 10px;padding: 10px;" (click)="submit()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-spinner></app-spinner>

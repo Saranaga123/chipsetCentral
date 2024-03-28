@@ -23,6 +23,12 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 import { BuyComponent } from './pages/buy/buy.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
+import { OrdersuccessComponent } from './components/ordersuccess/ordersuccess.component';
+import { SandBoxPaymentGatewayComponent } from './pages/sand-box-payment-gateway/sand-box-payment-gateway.component';
+import { ThankyouComponent } from './pages/thankyou/thankyou.component';
+import { OrdersComponent } from './pages/landing/popup/orders/orders.component';
+import { RegisterComponent } from './components/register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +36,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SpinnerComponent,
     ViewItemComponent,
     BuyComponent,
+    LoginComponent,
+    OrdersuccessComponent,
+    SandBoxPaymentGatewayComponent,
+    ThankyouComponent,
+    OrdersComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

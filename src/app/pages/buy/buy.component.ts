@@ -3,7 +3,10 @@ import { DomSanitizer, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { LandingService } from 'src/app/services/landing.service';
-
+import { NgbDateStruct, NgbModal, NgbCalendar, NgbDateAdapter, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
+import { DatePipe } from '@angular/common';
+import { LoginComponent } from '../../components/login/login.component';
+import { OrdersuccessComponent } from 'src/app/components/ordersuccess/ordersuccess.component';
 @Component({
   selector: 'app-buy',
   templateUrl: './buy.component.html',
@@ -24,6 +27,7 @@ export class BuyComponent {
   add2:any="";
   add3:any="";
   payMethod:any=1;
+  date: any  ;
 
   constructor(
     private titleService: Title,
@@ -31,8 +35,11 @@ export class BuyComponent {
     private landingservice : LandingService,
     private spinner: NgxSpinnerService,
     private _sanitizer: DomSanitizer,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private modal: NgbModal,
+    private datePipe: DatePipe
   ) {
+    this.date = this.datePipe.transform(new Date(), 'dd/MM/yyyy');
   }
   ngOnInit(): void {
     // Subscribe to route parameters
@@ -50,23 +57,45 @@ export class BuyComponent {
 
   getProd(model: any): void {
     // Show a spinner while data is being fetched
-    this.spinner.show();
-    const observer = {
-      next: (data: any) => {
-        this.specs = data[0];
-        this.specs.image = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,' + this.specs.image);
-        this.specs.image2 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,' + this.specs.image2);
-        this.specs.image3 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,' + this.specs.image3);
-        this.specs.selectedImage = "image";
-        console.log(this.specs);
-        this.spinner.hide();
-        this.amountChanged(1);
-      },
-      error: (error: any) => {
-        console.error('Error retrieving transaction:', error);
-      },
-    };
-    this.landingservice.getprod(model).subscribe(observer);
+    let user = {
+      name:"",
+      email:""
+    }
+    let userlogs = sessionStorage.getItem("userdata");
+    if(userlogs){
+      user = JSON.parse(userlogs)
+    }
+    if(userlogs){
+      this.spinner.show();
+      const observer = {
+        next: (data: any) => {
+          this.specs = data[0];
+          this.specs.image = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,' + this.specs.image);
+          this.specs.image2 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,' + this.specs.image2);
+          this.specs.image3 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,' + this.specs.image3);
+          this.specs.selectedImage = "image";
+          console.log(this.specs);
+          this.spinner.hide();
+          this.amountChanged(1);
+          this.name=user.name
+          this.mobile=""
+          this.email=user.email
+          this.post=""
+          this.add1=""
+          this.add2=""
+          this.add3=""
+        },
+        error: (error: any) => {
+          console.error('Error retrieving transaction:', error);
+        },
+      };
+      this.landingservice.getprod(model).subscribe(observer);
+    }else{
+      this.modal.open(LoginComponent, {
+        size: 'lg',
+      });
+    }
+
   }
   selectImage(image:string){
     this.specs.selectedImage=image
@@ -110,9 +139,12 @@ export class BuyComponent {
     this.spinner.show();
     let orderDetails = {
       id:'',
+      date:this.date,
       product:"CC",
       model: this.pcmodel,
       billingAmount: this.Total,
+      units:this.amount,
+      unitprice:this.specs.price.replace(/[^0-9.]/g, ''),
       name: this.name,
       mobile: this.mobile,
       email:this.email ,
@@ -126,11 +158,41 @@ export class BuyComponent {
     this.landingservice.createorder(orderDetails).subscribe(
       (response) => {
         this.spinner.hide();
-        console.log("responce ", response);
+        sessionStorage.setItem("orderDetails",JSON.stringify(response))
+        const modalRef = this.modal.open(OrdersuccessComponent, {
+          size: 'md',
+        });
+
+        modalRef.result.then(
+          (result) => {
+            console.log('Modal closed with result:', result);
+            this.router.navigate(['/payment']);
+          },
+          (reason) => {
+            this.router.navigate(['/payment']);
+            console.log('Modal dismissed with reason:', reason);
+          }
+        );
+        console.log("responce good ", response);
       },
       (error) => {
         this.spinner.hide();
-        console.log("responce ", error.error.text);
+        console.log("responce bad", error.error.text);
+        sessionStorage.setItem("orderDetails",JSON.stringify(orderDetails))
+        const modalRef = this.modal.open(OrdersuccessComponent, {
+          size: 'md',
+        });
+
+        modalRef.result.then(
+          (result) => {
+            console.log('Modal closed with result:', result);
+            this.router.navigate(['/payment']);
+          },
+          (reason) => {
+            this.router.navigate(['/payment']);
+            console.log('Modal dismissed with reason:', reason);
+          }
+        );
       }
     );
     console.log("orderDetails",orderDetails)

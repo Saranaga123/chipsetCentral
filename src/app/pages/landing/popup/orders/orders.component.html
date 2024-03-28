@@ -1,0 +1,26 @@
+<div style="width: 100%;text-align: center;padding: 20px;max-height: 870px;overflow-y: scroll;">
+  <h1 style="margin-bottom: 30px;">Purchase requests.</h1>
+  <div style="margin-bottom: 20px;">
+    <div *ngFor="let order of orders" style="background-color: rgb(255, 255, 255);width: 33%; padding: 20px;float: left; border: solid #d7d7d7  2px;border-radius: 10px;">
+      <p  >Laptop Model : <span><h3>{{order.model}}</h3></span></p>
+      <p  >Units :<span><h2>{{order.units }}</h2></span></p>
+      <p  >Billing Ammount :<span><h2>$ {{order.billingAmount| number:'1.2-2'}}</h2></span></p>
+      <p  >Delivery Location :<span><h3>{{order.name}}<br>{{order.post}}<br>{{order.add1}}<br>{{order.add2}}<br>{{order.add3}}</h3></span></p>
+      <p style="text-align: justify;   ">Order Status:<span><h2>{{order.status}}</h2></span></p>
+      <div style="width: 100%;float: left;">
+        <div *ngIf="order.status=='new'" class="btn" style="padding: 5px 5px 5px 5px;">
+          Continue
+        </div>
+        <div *ngIf="order.status=='new'" class="btn" style="margin-left: 10px;padding: 5px 14px 5px 14px">
+          Delete
+        </div>
+        <div *ngIf="order.status!='new'" class="btn3">
+           
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>

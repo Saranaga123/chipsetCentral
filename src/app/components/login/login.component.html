@@ -1,0 +1,23 @@
+<div style="height:400px; background-color: white;border-radius: 20px; padding:20px;margin-top: 50px;" >
+  <div style="width:100%;text-align: center;font-size: 25px;font-weight: 600;">
+    <img src ="../../../assets/img/aw.png" alt="sl1" style="width: 15%; display: block; margin: 0 auto;  ">
+  </div>
+  <div style="width:100%;text-align: center;font-size: 25px;font-weight: 600;margin-top: 10px;">
+    Login
+  </div>
+  <div style="width:100%;text-align: center;font-size:14px;font-weight: 600;margin-top: 10px;">
+    <p style="color: red;font-size: 15px;"*ngIf="invalid">Incorrect Creds...</p>
+    <input type="text" style="width: 60%;border-radius: 10px;text-align: center;margin-top: 20px;"placeholder="User ID"[(ngModel)]="username">
+    <input type="password" style="width: 60%;border-radius: 10px;text-align: center;margin-top: 20px;"placeholder="Password" [(ngModel)]="password">
+  </div>
+  <div style="width:100%;text-align: center;font-size: 25px;font-weight: 600;margin-top: 30px;">
+   <button style="width: 30%; background-color: black;color:white;border-radius: 30px;padding: 10px;font-size: 20px;" (click)="submituserdata()">
+    Submit
+   </button>
+
+  </div>
+  <div style="width:100%;text-align: center;font-size: 15px;margin-top: 30px;">
+    Don't have an account ? <span style="color:black;font-weight: 600;cursor: pointer;" (click)="register()"><u>Register</u></span> here
+  </div>
+</div>
+<app-spinner></app-spinner>

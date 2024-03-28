@@ -1,0 +1,68 @@
+
+  <div style="width:100%; padding:0px 50px 0px 50px">
+    <div style="width:100%; text-align: center; margin-top: 100px;">
+
+      <h1 style="font-weight: 600;">Order ID : {{id}}</h1>
+      <img src ="../../../assets/img/aw.png" alt="sl1" style="width: 5%; display: block; margin: 0 auto; filter: drop-shadow(0 0 0.5rem rgb(20, 147, 220));margin-bottom: 40px;">
+      <h1 style="font-weight: 600;">We recieved your order. <br> Thank you for purchesing Alienware</h1>
+    </div>
+    <div style="width:100%;text-align: center;" >
+      <h3><b>Order Status : </b>In-progress</h3>
+      <h3><b>Customer: </b>{{name}}</h3>
+      <h3><b>Model : </b>{{model}}</h3>
+      <h3><b>Price : </b>${{amount| number:'1.2-2'}}</h3>
+      <h3><b>Delivery location </b><br>{{name}},<br>{{poco}},<br>{{add1}},<br>{{add2}},<br>{{add3}}</h3>
+    </div>
+  </div>
+<div  hidden >
+  <div #printableContent class="no-print" style="width: 100%;">
+    <div style="padding-left: 50px;padding-right: 50px;">
+      <!-- <div style="width:100%; text-align: center; margin-top: 100px;background-color:rgb(230, 230, 230) ;"> -->
+        <br>
+        <br>
+        <br>
+        <br><br>
+        <br>
+        <br>
+        <br>
+        <h1 style="font-weight: 600;text-align: center;">CHIPSET CENTRAL - ALIENWARE </h1>
+        <br>
+        <br>
+        <img src ="../../../assets/img/aw.png" alt="sl1" style="width: 15%; display: block; margin: 0 auto;  margin-bottom: 40px;">
+        <h1 style="text-align: center;">We recieved your order. <br> Thank you for purchesing Alienware</h1>
+      <!-- </div> -->
+      <div style="width: 100%;float: left;">
+        <div style="width:50%;text-align: left;float: left;" >
+          <h3><b>Date : {{date}}</b> </h3>
+          <h3><b>Order ID : </b>{{id}}</h3>
+          <h3><b>Order Status : </b>In-progress</h3>
+          <h3><b>Customer: </b>{{name}}</h3>
+          <h3><b>Model : </b>{{model}}</h3>
+          <h3><b>Units : {{units}}</b> </h3>
+          <h3><b>Paid : </b><span *ngIf="units!='1'">{{units}}units * ${{unitprice| number:'1.2-2'}} : </span> <b>${{amount| number:'1.2-2'}}</b></h3>
+          <h3><b>Delivery location </b></h3>
+          <h3 style="padding-left: 30px;">{{name}},<br>{{poco}},<br>{{add1}},<br>{{add2}},<br>{{add3}}</h3>
+        </div>
+        <div style="width:50%;text-align: left;float: left;" >
+          <img src ="../../../assets/img/paid-watermark-stamp-text-caption-260nw-527533087_jpg.png" alt="sl1" style="width: 100%; margin-top: 250px;">
+        </div>
+      </div>
+      <div style="width: 100%;float: left;">
+        <p>This is a Chipset Central System generated receipt, signatures not required.<br>
+          Please download and save this receipt, You can use orderid to access your order status.<br>
+          Thank you !</p>
+          <p style="width: 100%;text-align: right;font-size: 12px;">Email:  CCALIENWARE@ALIEN.ORG<br>Hotline: +66 45 124 4562</p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<div style="width:100%;  " >
+
+  <div style="width: 100%;margin-top: 20px;float: left;text-align: center;">
+        <button style="background-color: black;color: white;font-size: 18px;border-radius: 10px;padding: 10px;" (click)="home()" >Home</button>
+        <button style="background-color: black;color: white;font-size: 18px;border-radius: 10px;padding: 10px;" (click)="print()" >Print</button>
+  </div>
+</div>
