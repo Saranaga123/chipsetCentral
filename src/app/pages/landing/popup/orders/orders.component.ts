@@ -12,7 +12,7 @@ import { LandingService } from 'src/app/services/landing.service';
 })
 export class OrdersComponent {
   @Input() data: any;
-  orders:any
+  orders:any={}
   constructor(
     private router: Router,
     private landingservice : LandingService,
@@ -38,9 +38,11 @@ export class OrdersComponent {
 
         },
         error: (error: any) => {
+          this.spinner.hide();
           console.error('Error retrieving transaction:', error);
         },
       };
+      console.log(this.orders.lenght)
       this.landingservice.getorders(email).subscribe(observer);
   }
 }

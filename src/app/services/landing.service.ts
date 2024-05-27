@@ -5,7 +5,8 @@ import { catchError } from 'rxjs/operators';
 import { IuserLogin, userLogin } from '../shared/models/userLogin';
 import { IOrderUpload, Order } from '../shared/models/order';
 import { Product } from '../shared/models/product'
-import { ORDER_UPLOAD_URL,GET_PROD_REQ,GET_PROD_LIST, LOGIN, ORDER_UPDATE_URL, GET_ORDERS } from '../shared/constants/urls';
+import { ORDER_UPLOAD_URL,GET_PROD_REQ,GET_PROD_LIST, LOGIN, ORDER_UPDATE_URL, GET_ORDERS, USER_CREATE } from '../shared/constants/urls';
+import { IUserCreate, User } from '../shared/models/user';
 @Injectable({
   providedIn: 'root'
 })
@@ -32,6 +33,9 @@ export class LandingService {
 
   createorder(orderDetails:IOrderUpload):Observable<Order>{
     return this.http.post<Order>(ORDER_UPLOAD_URL,orderDetails);
+  }
+  createuser(userdata:IUserCreate):Observable<User>{
+    return this.http.post<User>(USER_CREATE,userdata);
   }
 
   getorders(id:any):Observable<Product[]>{

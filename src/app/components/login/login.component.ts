@@ -50,23 +50,30 @@ export class LoginComponent {
       id:this.username,
       pw:this.password
     }
+
+    console.log("Data", obj)
+    if(obj.id == "" || obj.pw ==""){
+      this.invalid = true
+      this.spinner.hide();
+    }else{
+      this.landingservice.login(obj).subscribe(
+        (response) => {
+          this.spinner.hide();
+          console.log("good responce ", response);
+          sessionStorage.setItem("userdata",JSON.stringify(response) )
+
+          this.invalid=false
+          this.closeModal()
+        },
+        (error) => {
+          this.spinner.hide();
+          console.log("bad responce ", error.error.text);
+          this.invalid=true
+        }
+      );
+    }
+
     this.username=""
     this.password=""
-    console.log("Data", obj)
-    this.landingservice.login(obj).subscribe(
-      (response) => {
-        this.spinner.hide();
-        console.log("good responce ", response);
-        sessionStorage.setItem("userdata",JSON.stringify(response) )
-
-        this.invalid=false
-        this.closeModal()
-      },
-      (error) => {
-        this.spinner.hide();
-        console.log("bad responce ", error.error.text);
-        this.invalid=true
-      }
-    );
   }
 }

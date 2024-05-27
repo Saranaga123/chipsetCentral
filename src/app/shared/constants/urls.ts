@@ -6,6 +6,7 @@ export const GET_ORDERS = BASE_URL+'/sarabe/order/'
 export const GET_PROD_REQ = BASE_URL+'/sarabe/prod/'
 export const GET_PROD_LIST = BASE_URL+'/sarabe/prod'
 export const LOGIN = BASE_URL+'/sarabe/login'
+export const USER_CREATE = BASE_URL+'/sarabe/user/Create'
 
 
 
