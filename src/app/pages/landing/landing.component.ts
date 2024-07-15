@@ -77,7 +77,7 @@ export class LandingComponent {
               status:element.status,
               category:element.category,
               price:element.price,
-              image:this._sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,'+element.image)
+              image:this._sanitizer.bypassSecurityTrustResourceUrl( element.image)
 
             }
             this.prod.push(prodObj)

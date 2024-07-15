@@ -22,6 +22,7 @@ export class OrdersComponent {
   ) {
   }
   ngOnInit(): void {
+    console.log("data",this.data)
     setTimeout(() => {
       this.getOrders(this.data);
       console.log(this.data)

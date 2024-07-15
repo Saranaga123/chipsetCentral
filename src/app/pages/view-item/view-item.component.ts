@@ -36,9 +36,9 @@ export class ViewItemComponent {
     const observer = {
       next: (data: any) => {
         this.specs=data[0]
-        this.specs.image=this._sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,'+this.specs.image)
-        this.specs.image2=this._sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,'+this.specs.image2)
-        this.specs.image3=this._sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,'+this.specs.image3)
+        this.specs.image=this._sanitizer.bypassSecurityTrustResourceUrl(this.specs.image)
+        this.specs.image2=this._sanitizer.bypassSecurityTrustResourceUrl(this.specs.image2)
+        this.specs.image3=this._sanitizer.bypassSecurityTrustResourceUrl(this.specs.image3)
         this.specs.selectedImage="image"
         console.log(this.specs)
         this.spinner.hide()

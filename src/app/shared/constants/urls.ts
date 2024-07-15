@@ -1,5 +1,5 @@
-// const BASE_URL='http://localhost:666';
-const BASE_URL='https://sarabe.onrender.com';
+const BASE_URL='http://localhost:666';
+// const BASE_URL='https://sarabe.onrender.com';
 export const ORDER_UPLOAD_URL = BASE_URL+'/sarabe/order/Create'
 export const ORDER_UPDATE_URL = BASE_URL+'/sarabe/order/Update/'
 export const GET_ORDERS = BASE_URL+'/sarabe/order/'
