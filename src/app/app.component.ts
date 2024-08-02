@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { OrdersComponent } from './pages/landing/popup/orders/orders.component';
 import { LoginComponent } from './components/login/login.component';
+import { ChatbotComponent } from './components/chatbot/chatbot.component';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,7 @@ export class AppComponent {
   img5:boolean=true
   img6:boolean=true
   userName :any= ""
-
+  chat:boolean=false
   prod:any=[]
 
   constructor(
@@ -29,6 +30,18 @@ export class AppComponent {
   }
   ngOnInit(): void {
 
+  }
+  ChatBOT(){
+    // const modalRef = this.modalService.open(ChatbotComponent, {
+    //   size: 'md',
+    // });
+    console.log(this.chat)
+    if(this.chat==false){
+      this.chat=true
+    }else{
+      this.chat=false
+    }
+    console.log(this.chat)
   }
   checkuser(){
     let userlogs = sessionStorage.getItem("userdata")

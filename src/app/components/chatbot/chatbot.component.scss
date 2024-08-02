@@ -1,0 +1,97 @@
+.chat-wrapper {
+  display: flex;
+  justify-content: center; /* Center the chat container */
+}
+
+.chat-container {
+  width: 350px;
+  border: 2px solid #444; /* Dark border color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Darker shadow */
+  display: flex;
+  flex-direction: column;
+  background-color: #333; /* Dark background color */
+}
+
+.chat-header {
+  background-color: #444; /* Darker header background color */
+  color: #fff; /* White text color */
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.chat-body {
+  flex: 1;
+  height:355px;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #222; /* Darker background color for chat body */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align messages to the start by default */
+}
+
+.chat-input {
+  border-top: 1px solid #555; /* Darker border color for the input area */
+  padding: 10px;
+  background-color: #333; /* Dark background color for input area */
+}
+
+.chat-input input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid #555; /* Darker border color for the input */
+  border-radius: 5px;
+  background-color: #444; /* Darker background color for the input */
+  color: #fff; /* White text color for the input */
+}
+
+.message-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px; /* Space between header and message box */
+}
+
+.avatar {
+  width: 30px; /* Adjust size as needed */
+  height: 30px; /* Adjust size as needed */
+  border-radius: 50%; /* Circular avatar */
+  margin-right: 10px; /* Space between image and message box */
+}
+
+.message-box {
+  padding: 10px;
+  border-radius: 15px; /* Rounded corners for the box */
+  margin: 5px 0;
+  word-wrap: break-word; /* Allow breaking words */
+  overflow-wrap: break-word; /* Prevent overflow */
+  word-break: break-word; /* Ensure long words break */
+  display: inline-block; /* Ensure it fits content */
+}
+
+.user-message {
+  align-self: flex-end; /* Align user messages to the right */
+  text-align: right;
+}
+
+.user-message .message-box {
+  background-color: #007BFF; /* Blue background for user messages */
+  color: #fff; /* White text color */
+}
+
+.ai-message {
+  align-self: flex-start; /* Align AI messages to the left */
+  text-align: left;
+}
+
+.ai-message .message-box {
+  background-color: #444; /* Dark background for AI messages */
+  color: #fff; /* White text color */
+}
+.showc{
+  display: contents;
+}
+.hidec{
+  display: none
+}

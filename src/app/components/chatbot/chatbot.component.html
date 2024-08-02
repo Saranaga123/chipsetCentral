@@ -1,0 +1,29 @@
+<div class="chat-wrapper">
+  <div class="chat-container">
+      <div class="chat-header" *ngIf="full" style="text-align: right;"><span style="cursor: pointer;padding: 5px;" (click)="tooglechat()">_</span></div>
+      <div class="chat-header" *ngIf="!full" style="text-align: right;"><span style="cursor: pointer;padding: 5px;" (click)="tooglechat()">O</span></div>
+      <div class="chat-header">Chat with us! <br>
+        Designed BY SARA </div>
+      <div >
+        <div   [ngClass]="{'chat-body': full, 'hidec': !full}" #chatBody>
+          <div style="background-color: rgba(0, 0, 0, 0.534);position: fixed; bottom: 120px;right: 120px;z-index: 10; width: 350px;
+          height: 500px;"  *ngIf="loading" >
+            <p style="color:white; margin-left: 41%;margin-top: 63%;">Please wait...</p>
+
+          </div>
+            <div *ngFor="let message of messages" [ngClass]="{'user-message': message.isUser, 'ai-message': !message.isUser}">
+                <div class="message-header">
+                    <img [src]="message.isUser ? 'assets/user-avatar.png' : 'assets/bot-avatar.png'" alt="{{ message.isUser ? 'You' : 'Bot' }}" class="avatar"  >
+                </div>
+                <div class="message-box">
+                    <span>{{ message.text }}</span>
+                </div>
+            </div>
+        </div>
+        <div [ngClass]="{'chat-input': full, 'hidec': !full}"   >
+            <input type="text" [(ngModel)]="userMessage" placeholder="Talk to AI assistant..." (keydown.enter)="sendMessage()" >
+        </div>
+      </div>
+
+  </div>
+</div>

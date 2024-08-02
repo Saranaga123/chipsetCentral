@@ -10,9 +10,18 @@
   </div>
   <div  class="getProdBtn2" style="position: fixed;bottom: 20px;right: 20px;width: 90px;text-align: center;" (click)="checkuser()">
     <div style="width: 100%;">
-      <img src ="../../../assets/img/Alienware-Logo66.png" alt=""  style=" width:50%;margin-bottom: 10px;">
+      <img src ="../../../assets/img/orders.png" alt=""  style=" width:50%;margin-bottom: 10px;">
     </div>
     Your Orders !
+  </div>
+  <div  class="getProdBtn2" style="position: fixed;bottom: 20px;right: 120px;width: 90px;text-align: center;" (click)="ChatBOT()">
+    <div style="width: 100%;">
+      <img src ="../../../assets/img/Alienware-Logo66.png" alt=""  style=" width:50%;margin-bottom: 10px;">
+    </div>
+   ChatBOT
+  </div>
+  <div *ngIf="chat" style="position: fixed; bottom: 120px;right: 120px;z-index: 10;">
+    <app-chatbot></app-chatbot>
   </div>
 <router-outlet></router-outlet>
 

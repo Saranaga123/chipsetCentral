@@ -29,6 +29,7 @@ import { SandBoxPaymentGatewayComponent } from './pages/sand-box-payment-gateway
 import { ThankyouComponent } from './pages/thankyou/thankyou.component';
 import { OrdersComponent } from './pages/landing/popup/orders/orders.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ChatbotComponent } from './components/chatbot/chatbot.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,7 @@ import { RegisterComponent } from './components/register/register.component';
     ThankyouComponent,
     OrdersComponent,
     RegisterComponent,
+    ChatbotComponent
   ],
   imports: [
     BrowserModule,

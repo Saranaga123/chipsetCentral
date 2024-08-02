@@ -15,6 +15,7 @@ export class RegisterComponent {
   email:any=""
   nic:any=""
   occupation:any=""
+  passwordconf:any=""
   bod:any=""
   gender:any=""
   vname:boolean=true
@@ -24,7 +25,9 @@ export class RegisterComponent {
   vbod:boolean=true
   vgender:boolean=true
   validemail:boolean=true
-  password:any="sara"
+  password:any=""
+  vpassword:boolean=true
+  vvpassword:boolean=true
 
   Validform:boolean=true
   constructor(
@@ -64,6 +67,19 @@ export class RegisterComponent {
     }else{
       this.voccupation = true
     }
+    if(this.password==""){
+      this.vpassword = false
+      this.vvpassword = true
+    }else{
+      if(this.password==this.passwordconf){
+        this.vpassword = true
+        this.vvpassword = true
+      }else{
+        this.vpassword = false
+        this.vvpassword = false
+        console.log("this.vvpassword:",this.vvpassword)
+      }
+    }
 
     if(this.bod==""){
       this.vbod = false
@@ -78,7 +94,7 @@ export class RegisterComponent {
     }
 
 
-    if(this.vgender&&this.vbod&&this.voccupation&&this.vnic&&this.vemail&&this.vname&&this.validemail){
+    if(this.vgender&&this.vpassword&&this.vbod&&this.voccupation&&this.vnic&&this.vemail&&this.vname&&this.validemail){
       this.Validform=true
       this.createobj()
     }else{
