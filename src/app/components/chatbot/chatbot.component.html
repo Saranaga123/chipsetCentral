@@ -11,6 +11,14 @@
             <p style="color:white; margin-left: 41%;margin-top: 63%;">Please wait...</p>
 
           </div>
+            <div class="ai-message" >
+              <div class="message-header">
+                  <img src="assets/bot-avatar.png"   class="avatar"  >
+              </div>
+              <div class="message-box">
+                  <span>Chat with me !</span>
+              </div>
+            </div>
             <div *ngFor="let message of messages" [ngClass]="{'user-message': message.isUser, 'ai-message': !message.isUser}">
                 <div class="message-header">
                     <img [src]="message.isUser ? 'assets/user-avatar.png' : 'assets/bot-avatar.png'" alt="{{ message.isUser ? 'You' : 'Bot' }}" class="avatar"  >
